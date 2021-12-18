@@ -49,14 +49,14 @@ const start = async () => {
       webhookReply: false,
     }); // https.Agent instance, allows custom proxy, certificate, keep alive, etc. // Reply via webhook
 
-    // bot.telegram.setWebhook(`${WEB_HOOK_URL_BASE}${WEB_HOOK_SECRET}`);
+    bot.telegram.setWebhook(`${WEB_HOOK_URL_BASE}${WEB_HOOK_SECRET}`);
 
-    // fastifyInstance.use(bot.webhookCallback(WEB_HOOK_SECRET));
+    fastifyInstance.use(bot.webhookCallback(WEB_HOOK_SECRET));
 
     bot.use(session());
     bot.use(stage.middleware());
 
-    bot.launch();
+    // bot.launch();
 
     bot.start((ctx) => {
       ctx.reply(
