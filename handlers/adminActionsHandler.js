@@ -54,7 +54,9 @@ const adminActionsHandler = (bot) => {
   bot.hears(ADMIN_BUTTONS.viewRoomInfo.text, async (ctx) => {});
 
   bot.hears('Распределить участников', (ctx) => {
-    ctx.scene.enter(SCENES.assignRecipients);
+    ctx.scene.enter(SCENES.assignRecipients, {
+      bot,
+    });
   });
 };
 

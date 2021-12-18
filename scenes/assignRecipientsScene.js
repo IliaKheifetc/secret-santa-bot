@@ -89,7 +89,7 @@ const checkIfUserIsAdmin = async (ctx) => {
 };
 
 const assignRecipients = async (ctx) => {
-  const { room } = ctx.wizard.state;
+  const { bot, room } = ctx.wizard.state;
 
   const getRoomUsersResponse = await ApiSource.graphql({
     query: getRoomUsers,
@@ -138,7 +138,12 @@ const assignRecipients = async (ctx) => {
     console.log('recipient', recipient);
 
     // notify a participant about their corresponding recipient
-    ctx.reply(
+    // ctx.reply(
+    //   `Для Вас был выбран участник ${recipient.user.FIO}, Вам нужно отправить ему/ей подарок!`,
+    // );
+
+    bot.telegram.sendMessage(
+      roomParticipant.user.id,
       `Для Вас был выбран участник ${recipient.user.FIO}, Вам нужно отправить ему/ей подарок!`,
     );
   });

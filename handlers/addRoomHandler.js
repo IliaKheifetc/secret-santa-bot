@@ -72,7 +72,6 @@ const addRoomHandler = (bot) => {
       await ctx.reply(
         `Для Вас была создана комната: "${response?.data?.insert_rooms_one?.name}". ` +
           'Это название надо будет отправить тем, кого Вы захотите пригласить в комнату',
-        // { reply_markup: { remove_keyboard: true } },
       );
     } catch (err) {
       console.error('Error when adding a room: ', err);
