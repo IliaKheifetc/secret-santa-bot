@@ -142,6 +142,8 @@ const assignRecipients = async (ctx) => {
       `Для Вас был выбран участник ${recipient.user.FIO}, Вам нужно отправить ему/ей подарок!`,
     );
   });
+
+  return ctx.scene.leave();
 };
 
 const assignRecipientsScene = new WizardScene(
